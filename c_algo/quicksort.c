@@ -16,8 +16,8 @@ void quicksort(int a[],int l,int r)
     mr = r;
     while(l<r)
     {
-        while(++l<=mr&&a[l]<=a[ml]);
-        while(--r>=ml&&a[r]>=a[ml]);
+        while(++l<mr&&a[l]<=a[ml]);
+        while(--r>ml&&a[r]>=a[ml]);
         if(l<r)swap(&a[l],&a[r]);
     }
     swap(&a[r],&a[ml]);

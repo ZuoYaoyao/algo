@@ -1,58 +1,34 @@
 #include<stdio.h>
 
-void mergesort(int a[],int l,int r);
-void merge(int a[],int b[],int l,int m,int r);
+void swap(int *a,int *b)
+{
+    int tmp;
+    tmp = *a;
+    *a = *b;
+    *b = tmp;
+}
 
-int b[6];
+void quicksort(int a[],int l,int r)
+{
+    if(r<l+2)return;
+    int ml,mr;
+    ml = l;
+    mr = r;
+    while(l<r)
+    {
+        while(++l<mr&&a[l]<=a[ml]);
+        while(--r>ml&&a[r]>=a[ml]);
+        if(l<r)swap(&a[l],&a[r]);
+    }
+    swap(&a[r],&a[ml]);
+    quicksort(a,ml,r);
+    quicksort(a,l,mr);
+}
 
 int main()
 {
-    int a[]={9,8,5,3,2,1};
-    
-    mergesort(a,0,5);
-
-    for(int i=0;i<6;i++)
-    {
-        printf("%d\n",a[i]);
-    }
-
-}
-
-
-void mergesort(int a[],int l,int r)
-{
-    if(l>=r)return;
-    int m = (l+r)/2;
-    mergesort(a,l,m);
-    mergesort(a,m+1,r);  
-    merge(a,b,l,m,r); 
-    //copy step
-    for(int i=l;i<=r;i++)
-    {
-        a[i] = b[i];
-    }   
-}
-
-void merge(int a[],int b[],int l,int m,int r)
-{
-    int i = l,j = m+1,e = l;
-    while(i<=m&&j<=r)
-    {
-        if(a[i]<=a[j])
-        {
-            b[e++]=a[i++];
-        }
-        else
-        {
-            b[e++]=a[j++];
-        }
-    }
-    if(i>m)
-    {
-        for(;j<=r;j++)b[e++]=a[j];
-    }
-    else
-    {
-        for(;i<=m;i++)b[e++]=a[i];
-    }
+    int a[]={8,3,6,7,1,5};
+    quicksort(a,0,6);
+    for(int i=0;i<6;i++)printf("%d\n",a[i]);
+    return 0;
 }
