@@ -14,12 +14,22 @@ void quicksort(int a[],int l,int r)
     int ml,mr;
     ml = l;
     mr = r;
+    //l>=r，完成一遍扫描
     while(l<r)
     {
+        //如果停了，说明左边有大的，
+        //一上来++，不和自己比，自己指a[ml]
         while(++l<mr&&a[l]<=a[ml]);
+        
+        //如果停了，说明右边有小的
+        //一上来--，因为输入的是size
         while(--r>ml&&a[r]>=a[ml]);
+        
+        //此时仍未完成一次遍历，交换
         if(l<r)swap(&a[l],&a[r]);
     }
+
+    //因为做比较元的是a[ml]，所以跟右边的换
     swap(&a[r],&a[ml]);
     quicksort(a,ml,r);
     quicksort(a,l,mr);
