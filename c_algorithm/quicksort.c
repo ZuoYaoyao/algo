@@ -14,7 +14,7 @@ void quicksort(int a[],int l,int r)
     int ml,mr;
     ml = l;
     mr = r;
-    //l>=r，完成一遍扫描
+    //l>=r，完成一遍扫描,以a[ml]为轴，大的放右边，小的放左边
     while(l<r)
     {
         //如果停了，说明左边有大的，
