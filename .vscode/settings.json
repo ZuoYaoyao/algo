@@ -1,0 +1,15 @@
+{
+    "files.associations": {
+        "iostream": "cpp",
+        "ostream": "cpp",
+        "__functional_03": "cpp",
+        "functional": "cpp",
+        "algorithm": "cpp",
+        "chrono": "cpp",
+        "limits": "cpp",
+        "ratio": "cpp",
+        "__locale": "cpp",
+        "iosfwd": "cpp",
+        "iomanip": "cpp"
+    }
+}

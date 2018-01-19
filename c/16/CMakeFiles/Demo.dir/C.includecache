@@ -1,0 +1,14 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/zy/vscode/project/vscode/c/16/prog1.c
+stdio.h
+-
+
+/Users/zy/vscode/project/vscode/c/16/prog2.c
+
